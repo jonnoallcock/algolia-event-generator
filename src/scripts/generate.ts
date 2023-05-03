@@ -1,14 +1,5 @@
 import fs from 'fs'
-import { EVENTS, EVENTS_OUT, EVENT_COUNT, USER_TOKENS, arrayOfLength, getDates, getObjectIDs, randomArrayElement, startup } from "../utils";
-
-const headers = [
-    'userToken',
-    'timestamp',
-    'objectID',
-    'eventType',
-    'eventName'
-]
-const separator = ','
+import { EVENTS, EVENTS_OUT, EVENT_COUNT, EVENT_HEADERS, SEPARATOR, USER_TOKENS, arrayOfLength, getDates, getObjectIDs, randomArrayElement, startup } from "../utils";
 
 const eventTypes = Object.keys(EVENTS)
 const dates = getDates()
@@ -19,7 +10,7 @@ const dates = getDates()
     const objectIDs = await getObjectIDs()
 
     fs.writeFileSync(EVENTS_OUT, [
-        headers.join(separator),
+        EVENT_HEADERS.join(SEPARATOR),
         ...arrayOfLength(EVENT_COUNT).map(() => {
             const eventType = randomArrayElement(eventTypes)
             const eventName = EVENTS[eventType]
@@ -30,9 +21,9 @@ const dates = getDates()
                 randomArrayElement(objectIDs),
                 eventType,
                 eventName
-            ].join(separator)
+            ].join(SEPARATOR)
         })
     ].join('\n'))
 
-    console.log(`Generation complete: ${EVENTS_OUT}`)
+    console.info(`Generation complete: ${EVENTS_OUT}`)
 })()

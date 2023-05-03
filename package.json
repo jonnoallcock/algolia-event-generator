@@ -2,15 +2,16 @@
   "name": "algolia-event-generator",
   "version": "0.0.1",
   "scripts": {
-    "generate": "ts-node -r dotenv/config ./src/scripts/generate.ts"
+    "generate": "ts-node -r dotenv-safe/config ./src/scripts/generate.ts"
   },
   "dependencies": {
     "@tsconfig/recommended": "^1.0.2",
     "algoliasearch": "^4.17.0",
-    "dotenv": "^16.0.3",
+    "dotenv-safe": "^8.2.0",
     "invariant": "^2.2.4"
   },
   "devDependencies": {
+    "@types/dotenv-safe": "^8.1.2",
     "@types/invariant": "^2.2.35",
     "@types/node": "^18.16.3",
     "ts-node": "^10.9.1",

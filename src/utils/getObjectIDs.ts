@@ -1,5 +1,5 @@
 import algoliaSearch from 'algoliasearch'
-import { ALGOLIA_APP_ID, ALGOLIA_API_KEY, ALGOLIA_SEARCH_INDEX, ALGOLIA_QUERY_STRING, ALGOLIA_OBJECT_ID_COUNT } from './env'
+import { ALGOLIA_APP_ID, ALGOLIA_API_KEY, ALGOLIA_SEARCH_INDEX, ALGOLIA_QUERY_STRING, ALGOLIA_OBJECT_ID_COUNT } from './constants'
 
 export const getObjectIDs = async () => {
     const searchClient = algoliaSearch(ALGOLIA_APP_ID, ALGOLIA_API_KEY)
